@@ -199,15 +199,15 @@ export default defineComponent({
       this.searchbar = bage;
     },
     addCryproTocurrencies(value = "") {
+      const newItem = typeof value === "string" ? value : this.searchbar;
       if (
         this.fullListCrypto.some(
           (item) => item.toLowerCase() === this.searchbar.toLowerCase()
         ) &&
         !this.currencies.some(
-          (item) => item.toLowerCase() === this.searchbar.toLowerCase()
+          (item) => item.toLowerCase() === newItem.toLowerCase()
         )
       ) {
-        const newItem = typeof value === "string" ? value : this.searchbar;
         this.currencies.push(newItem);
       }
     },
